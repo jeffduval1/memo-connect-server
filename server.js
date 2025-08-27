@@ -1,10 +1,11 @@
-require('dotenv').config();
-
 // server/server.js
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
 const path = require('path');
+
+const config = require('./config');
+
 const healthRoutes = require('./routes/health');
 // Import des routes
 const cardsRoutes = require('./routes/cards.routes');
@@ -17,7 +18,8 @@ console.log('usersRoutes =', usersRoutes);
 
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = config.port;
+
 
 // Middleware
 app.use(cors());
@@ -32,7 +34,7 @@ app.use('/api/health', healthRoutes);
 
 // Route de test
 app.get('/api/ping', (req, res) => {
-  res.json({ message: 'pong 🏓' });
+  res.json({ message: 'pong 🏓', env: config.nodeEnv });
 });
 
 // Gestion des erreurs 404

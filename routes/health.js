@@ -7,12 +7,21 @@ const pool = new Pool({
   ssl: { rejectUnauthorized: false }
 });
 
-// Endpoint de base
+// GET /api/health
 router.get('/', (req, res) => {
   res.json({ status: 'ok' });
 });
 
-// Endpoint pour tester la connexion DB
+// GET /api/health/env
+router.get('/env', (req, res) => {
+  res.json({
+    status: 'ok',
+    env: process.env.NODE_ENV,
+    port: process.env.PORT
+  });
+});
+
+// GET /api/health/db
 router.get('/db', async (req, res) => {
   try {
     await pool.query('SELECT 1');
