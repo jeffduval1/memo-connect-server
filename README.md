@@ -92,6 +92,17 @@ Des tests unitaires et de routes seront ajoutés avec Jest ou Supertest.
 Des fonctionnalités majeures sont en cours d’implémentation côté backend (authentification, base de données, sécurité, tests…).
 
 ---
+## Choix de la base de données
+
+La base de données choisie pour MemoConnect est **PostgreSQL**.
+
+**Raisons principales :**
+- Relations complexes entre cartes, catégories et utilisateurs.
+- Besoin de statistiques et d’analyses fiables à long terme.
+- Outils de migration solides pour un projet maintenable.
+
+**Configuration locale (env) :**
+- DB_URL=postgresql://postgres:postgres@localhost:5432/memoconnect
 
 ## 📫 Contact
 
