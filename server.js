@@ -3,13 +3,14 @@ const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
 const path = require('path');
-
+const healthRoutes = require('./routes/health');
 // Import des routes
 const cardsRoutes = require('./routes/cards.routes');
 const usersRoutes = require('./routes/users.routes'); // exemple futur
 
 console.log('cardsRoutes =', cardsRoutes);
 console.log('usersRoutes =', usersRoutes);
+
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -22,6 +23,8 @@ app.use(morgan('dev')); // Logger simple
 // Routes API
 app.use('/api/cards', cardsRoutes);
 app.use('/api/users', usersRoutes); // placeholder pour expansion
+// Health route
+app.use('/api/health', healthRoutes);
 
 // Route de test
 app.get('/api/ping', (req, res) => {
