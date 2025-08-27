@@ -1,14 +1,12 @@
 const express = require('express');
 const router = express.Router();
+const cardsController = require('../controllers/cards.controller');
 
-// Exemple : GET /api/cards
-router.get('/', (req, res) => {
-  res.json({ message: 'Bienvenue sur l’API des cartes 🎴' });
-});
 
-// Tu pourras ajouter d’autres routes ici plus tard :
-// router.post('/', ...);
-// router.put('/:id', ...);
-// router.delete('/:id', ...);
+router.get('/', cardsController.getAll);
+router.get('/:id', cardsController.getOne);
+router.post('/', cardsController.create);
+router.put('/:id', cardsController.update);
+router.delete('/:id', cardsController.delete);
 
 module.exports = router;

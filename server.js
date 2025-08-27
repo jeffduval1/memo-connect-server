@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 // server/server.js
 const express = require('express');
 const cors = require('cors');
@@ -7,6 +9,8 @@ const healthRoutes = require('./routes/health');
 // Import des routes
 const cardsRoutes = require('./routes/cards.routes');
 const usersRoutes = require('./routes/users.routes'); // exemple futur
+const connectDB = require('./utils/db');
+connectDB();
 
 console.log('cardsRoutes =', cardsRoutes);
 console.log('usersRoutes =', usersRoutes);
