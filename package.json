@@ -9,7 +9,10 @@
     "dev": "cross-env NODE_ENV=development nodemon server.js",
     "db:migrate:dev": "node -r ./load-env.js scripts/run-sql.js v001__create_cards.sql",
 "db:rollback:dev": "node -r ./load-env.js scripts/run-sql.js v001__drop_cards.sql",
-"db:smoke:dev": "node -r ./load-env.js scripts/run-sql.js smoke_v001.sql"
+"db:smoke:dev": "node -r ./load-env.js scripts/run-sql.js smoke_v001.sql",
+"db:migrate:v002": "node -r ./load-env.js scripts/run-sql.js scripts/sql/migrations/v002_attachments_and_meta.sql",
+"db:rollback:v002": "node -r ./load-env.js scripts/run-sql.js scripts/sql/migrations/v002_down.sql",
+"db:smoke:v002": "node -r ./load-env.js scripts/run-sql.js scripts/sql/smoke_v002.sql"
   
   },
   "keywords": [
