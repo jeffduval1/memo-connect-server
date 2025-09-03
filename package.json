@@ -8,9 +8,11 @@
     "start": "cross-env NODE_ENV=production node server.js",
     "dev": "cross-env NODE_ENV=development nodemon server.js",
     "db:migrate:dev": "node -r ./load-env.js scripts/run-sql.js v001__create_cards.sql",
-"db:rollback:dev": "node -r ./load-env.js scripts/run-sql.js v001__drop_cards.sql",
-"db:smoke:dev": "node -r ./load-env.js scripts/run-sql.js smoke_v001.sql"
-  
+    "db:rollback:dev": "node -r ./load-env.js scripts/run-sql.js v001__drop_cards.sql",
+    "db:smoke:dev": "node -r ./load-env.js scripts/run-sql.js smoke_v001.sql",
+    "db:migrate:v002": "node -r ./load-env.js scripts/run-sql.js v002__attachments_and_meta.sql",
+    "db:rollback:v002": "node -r ./load-env.js scripts/run-sql.js v002__down.sql",
+    "db:smoke:v002": "node -r ./load-env.js scripts/run-sql.js smoke_v002.sql"
   },
   "keywords": [
     "angular",
